@@ -27,6 +27,7 @@ def binary_search(numbers_list, number_to_find):
 
     return -1
 
+
 def binary_search_recursive(numbers_list, number_to_find, left_index, right_index):
     if right_index < left_index:
         return -1
@@ -48,8 +49,14 @@ def binary_search_recursive(numbers_list, number_to_find, left_index, right_inde
     return binary_search_recursive(numbers_list, number_to_find, left_index, right_index)
 
 if __name__ == '__main__':
-    numbers_list = [12, 15, 17, 19, 21, 24, 45, 67]
-    number_to_find = 21
+    numbers_list = [i for i in range(10000001)]
+    number_to_find = 10000000
+
+    index= linear_search(numbers_list,number_to_find)
+    print(f"Number found at index {index} using Linear search")
+
+    index = binary_search(numbers_list, number_to_find)
+    print(f"Number found at index {index} using binary search")
 
     index = binary_search_recursive(numbers_list, number_to_find, 0, len(numbers_list))
-    print(f"Number found at index {index} using binary search")
+    print(f"Number found at index {index} using binary search recursive.")
